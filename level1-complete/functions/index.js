@@ -27,7 +27,7 @@ const app = dialogflow({debug: true});
 app.intent('favorite color', (conv, {color}) => {
     const luckyNumber = color.length;
     // Respond with the user's lucky number and end the conversation.
-    conv.close('Your lucky number is ' + luckyNumber);
+    conv.close('Your lucky number is ' + luckyNumber +'. Actually, the length of your favorite color...');
 });
 
 // Set the DialogflowApp object to handle the HTTPS POST request.
