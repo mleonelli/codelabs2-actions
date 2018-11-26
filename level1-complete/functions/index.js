@@ -35,7 +35,7 @@ app.intent('Default Welcome Intent', (conv) => {
 app.intent('actions_intent_PERMISSION', (conv, params, permissionGranted) => {
     if (!permissionGranted) {
       conv.ask(`Ok, no worries. What's your favorite color?`);
-      conv.ask(new Suggestions('Blue', 'Red', 'Green', 'Purple'));
+      conv.ask(new Suggestions('Blue', 'Red', 'Green', 'Purple', "Vermillion"));
     } else {
       conv.data.userName = conv.user.name.display;
       conv.ask(`Thanks, ${conv.data.userName}. What's your favorite color?`);
@@ -48,6 +48,7 @@ app.intent('actions_intent_PERMISSION', (conv, params, permissionGranted) => {
 app.intent('favorite color', (conv, {color}) => {
     const luckyNumber = color.length;
     if (conv.data.userName) {
+      conv.
       conv.close(`${conv.data.userName}, your lucky number is ${luckyNumber}.`);
     } else {
       conv.close(`Your lucky number is ${luckyNumber}.`);
